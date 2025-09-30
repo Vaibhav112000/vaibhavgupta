@@ -17,8 +17,20 @@ body {
   --maxw: 1100px;
 }
 
-/* LIMIT WIDTH + CENTER (fixes zoomed look) */
-.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+/* Limit width + comfy side padding */
+.wrap{
+  --gutter: clamp(20px, 6vw, 56px);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section{ 
+  margin-top: 40px; 
+  padding-left: clamp(20px, 6vw, 56px);
+  padding-right: clamp(20px, 6vw, 56px);
+}
 
 /* Sections */
 .section { margin-top: 40px; }
@@ -32,12 +44,14 @@ body {
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
-.nav {
-  max-width: var(--maxw);
+.nav{
+  --gutter: clamp(20px, 6vw, 56px);
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: 14px var(--gutter);
   display: flex; justify-content: space-between; align-items: center;
 }
+
 .nav .brand { color: var(--text); text-decoration: none; font-weight: 800; }
 .nav .links a { margin-left: 18px; text-decoration: none; color: var(--text); font-weight: 600; }
 .nav .links a:hover { color: var(--brand); }
@@ -53,7 +67,11 @@ body {
 .btn.ghost { background: transparent; }
 
 /* HERO */
-.hero-wrap { padding-top: 10px; }
+.hero-wrap{ padding-top: 10px; }
+.hero{
+  padding: clamp(24px, 6vw, 56px) 0;
+}
+
 .hero {
   display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; align-items: center;
   padding: 40px 0;
